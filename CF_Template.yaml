@@ -14,7 +14,9 @@ Resources:
   DbActivityStreamsVPCPublicSubnet1Subnet7F570CDD:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: us-west-2a
+      AvailabilityZone: !Select
+      - 0
+      - Fn::GetAZs: !Ref 'AWS::Region'
       CidrBlock: 10.0.0.0/19
       MapPublicIpOnLaunch: true
       Tags:
@@ -79,7 +81,9 @@ Resources:
   DbActivityStreamsVPCPublicSubnet2Subnet4333A889:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: us-west-2b
+      AvailabilityZone: !Select
+      - 1
+      - Fn::GetAZs: !Ref 'AWS::Region'
       CidrBlock: 10.0.32.0/19
       MapPublicIpOnLaunch: true
       Tags:
@@ -123,7 +127,9 @@ Resources:
   DbActivityStreamsVPCPublicSubnet3Subnet8B6E9362:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: us-west-2c
+      AvailabilityZone: !Select
+      - 2
+      - Fn::GetAZs: !Ref 'AWS::Region'
       CidrBlock: 10.0.64.0/19
       MapPublicIpOnLaunch: true
       Tags:
@@ -167,7 +173,9 @@ Resources:
   DbActivityStreamsVPCPrivateSubnet1Subnet685C9E68:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: us-west-2a
+      AvailabilityZone: !Select
+      - 0
+      - Fn::GetAZs: !Ref 'AWS::Region'
       CidrBlock: 10.0.96.0/19
       MapPublicIpOnLaunch: false
       Tags:
@@ -209,7 +217,9 @@ Resources:
   DbActivityStreamsVPCPrivateSubnet2Subnet237BCC7C:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: us-west-2b
+      AvailabilityZone: !Select
+      - 1
+      - Fn::GetAZs: !Ref 'AWS::Region'
       CidrBlock: 10.0.128.0/19
       MapPublicIpOnLaunch: false
       Tags:
@@ -251,7 +261,9 @@ Resources:
   DbActivityStreamsVPCPrivateSubnet3Subnet0857EE2E:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: us-west-2c
+      AvailabilityZone: !Select
+      - 2
+      - Fn::GetAZs: !Ref 'AWS::Region'
       CidrBlock: 10.0.160.0/19
       MapPublicIpOnLaunch: false
       Tags:
@@ -492,7 +504,9 @@ Resources:
   BastionHost30F9ED05:
     Type: AWS::EC2::Instance
     Properties:
-      AvailabilityZone: us-west-2a
+      AvailabilityZone: !Select
+      - 0
+      - Fn::GetAZs: !Ref 'AWS::Region'
       BlockDeviceMappings:
       - DeviceName: "/dev/sdh"
         Ebs:
